@@ -10,6 +10,7 @@
   --gray-color: #6b7688;
   --brown-color: #46364a;
   --white-color: #ffffff;
+  --shadow-color: rgba(0, 0, 0, 0.2);
   /* --logo: url('./assets/logo.png'); */
 }
   /*dark mode */
@@ -21,6 +22,7 @@
   --gray-color: #ffffff; /*letras*/
   --brown-color: #1d0424;
   --white-color: #14142c; /*container*/
+  --shadow-color: rgba(255, 255, 255, 0.2) 
   /* --logo: url('./assets/logo_black.png'); */
   }
 

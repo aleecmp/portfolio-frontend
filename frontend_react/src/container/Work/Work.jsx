@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { AiFillEye, AiFillGithub } from 'react-icons/ai';
+import {  AiFillGithub } from 'react-icons/ai';
+import { IoIosRocket, IoLogoGithub } from 'react-icons/io'
 import { motion } from 'framer-motion';
 
 import { AppWrap, MotionWrap } from '../../wrapper';
@@ -11,6 +12,8 @@ const Work = () => {
   const [filterWork, setFilterWork] = useState([]);
   const [activeFilter, setActiveFilter] = useState('All');
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
+
+  const workList = ['Backend', 'React JS', 'Web App', 'All']
 
   useEffect(() => {
     const query = '*[_type == "works"]';
@@ -43,7 +46,7 @@ const Work = () => {
       </h2>
 
       <div className='app__work-filter'>
-        {['Backend', 'Mobile App', 'React JS', 'UI/UX', 'Web App', 'All'].map(
+        {workList.map(
           (item, index) => (
             <div
               key={index}
@@ -84,7 +87,7 @@ const Work = () => {
                     transition={{ duration: 0.25 }}
                     className='app__flex'
                   >
-                    <AiFillEye />
+                    < IoIosRocket/>
                   </motion.div>
                 </a>
                 <a href={work.codeLink} target='_blank' rel='noreferrer'>
@@ -94,7 +97,7 @@ const Work = () => {
                     transition={{ duration: 0.25 }}
                     className='app__flex'
                   >
-                    <AiFillGithub />
+                    <IoLogoGithub />
                   </motion.div>
                 </a>
               </motion.div>
@@ -102,7 +105,7 @@ const Work = () => {
 
             <div className='app__work-content app__flex'>
               <h4 className='bold-text'>{work.title}</h4>
-              <p className='p-text' style={{ marginTop: 10 }}>
+              <p className='p-text' style={{ marginTop: 10, textAlign: 'center' }}>
                 {work.description}
               </p>
 
