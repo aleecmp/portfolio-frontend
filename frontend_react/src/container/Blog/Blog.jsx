@@ -4,11 +4,11 @@ import { motion } from 'framer-motion';
 
 import { AppWrap, MotionWrap } from '../../wrapper';
 import { urlFor, client } from '../../client';
-import './Testimonial.scss';
+import './Blog.scss';
 
-const Testimonial = () => {
+const Blog = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [testimonials, setTestimonials] = useState([]);
+  const [blogs, setBlogs] = useState([]);
   const [brands, setBrands] = useState([]);
 
   const handleClick = (index) => {
@@ -16,11 +16,11 @@ const Testimonial = () => {
   };
 
   useEffect(() => {
-    const query = '*[_type == "testimonials"]';
+    const query = '*[_type == "blog"]';
     const brandsQuery = '*[_type == "brands"]';
 
     client.fetch(query).then((data) => {
-      setTestimonials(data);
+      setBlogs(data);
     });
 
     client.fetch(brandsQuery).then((data) => {
@@ -30,18 +30,20 @@ const Testimonial = () => {
 
   return (
     <>
-      {testimonials.length && (
+
+      <h2 className='head-text'>Blog (Soon...)</h2>
+      {blogs.length && (
         <>
           <div className='app__testimonial-item app__flex'>
             <img
-              src={urlFor(testimonials[currentIndex].imgurl)}
-              alt={testimonials[currentIndex].name}
+              src={urlFor(blogs[currentIndex].imgurl)}
+              alt={blogs[currentIndex].name}
             />
             <div className='app__testimonial-content'>
-              <p className='p-text'>{testimonials[currentIndex].feedback}</p>
+              <p className='p-text'>{blogs[currentIndex].feedback}</p>
               <div>
-                <h4 className='bold-text'>{testimonials[currentIndex].name}</h4>
-                <h5 className='p-text'>{testimonials[currentIndex].company}</h5>
+                <h4 className='bold-text'>{blogs[currentIndex].name}</h4>
+                <h5 className='p-text'>{blogs[currentIndex].company}</h5>
               </div>
             </div>
           </div>
@@ -52,7 +54,7 @@ const Testimonial = () => {
               onClick={() =>
                 handleClick(
                   currentIndex === 0
-                    ? testimonials.length - 1
+                    ? blogs.length - 1
                     : currentIndex - 1
                 )
               }
@@ -64,7 +66,7 @@ const Testimonial = () => {
               className='app__flex'
               onClick={() =>
                 handleClick(
-                  currentIndex === testimonials.length - 1
+                  currentIndex === blogs.length - 1
                     ? 0
                     : currentIndex + 1
                 )
@@ -92,7 +94,7 @@ const Testimonial = () => {
 };
 
 export default AppWrap(
-  MotionWrap(Testimonial, 'app__testimonial'),
-  'testimonial',
+  MotionWrap(Blog, 'app__blog'),
+  'blog',
   'app__primarybg'
 );
