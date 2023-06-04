@@ -9,7 +9,7 @@ import DarkMode from '../DarkMode/DarkMode';
 
 const Navbar = () => {
     const [toggle, setToggle] = useState(false);
-    const navbarTitles = ['home', 'about', 'work', 'skills', 'blog', 'contact']
+    const navbarTitles = ['home', 'about', 'projects', 'skills', 'blog', 'contact']
 
     return (
         <nav className='app__navbar'>
